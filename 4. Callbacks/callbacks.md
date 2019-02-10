@@ -4,7 +4,7 @@
     * Accessing databases.
     * Performing network requests.
 * These operations if done in the normal way will result in delay in system response which is a bad user experience. Alternatively, they are done on another thread working in the background and keeping the system interactive.
-* The way we do that is be specifying a function to be executed once these long operations are completed. These functions are called **callbacks**.
+* The way we do that is by specifying a function to be executed once these long operations are completed. These functions are called **callbacks**.
 * The ability to pass functions as arguments in JavaScript(Treating functions as first-class citizens) has a very useful implications in performing these asynchronous operations by passing these callbacks.
 
 
@@ -29,7 +29,7 @@ This behaviour is because ` setTimeout ` is an **asynchronous function** that le
 
 
 ## Callbacks with arguments
-* **Callbacks** are rarely used with no arguments. Most of the cases **callbacks** accept argument such as the result or the error encountered from the asynchronous operation being executed.
+* **Callbacks** are rarely used with no arguments. Most of the cases **callbacks** accept arguments such as the result or the error encountered from the asynchronous operation being executed.
 * For an example of callbacks with arguments head to the course ` Up and running with ES6` chapter5(Asynchronous features) and see the callback passed to ` Promise ` constructor.
 * For another example let's see how we read a file asynchronously in **node.js**. We use a method in a library included with **node.js** called ` fs `. This method is named ` readFile `. ` readFile ` accepts as arguments:
     * the name of the file to be read.

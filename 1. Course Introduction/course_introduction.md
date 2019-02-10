@@ -1,10 +1,10 @@
 ## Installing Node.js and npm
 * For going through this course, we need to install:
     * **Node.js**  
-    JavaScript is a client-side programming language running on the browser of the client. **Node.js** is a tool used to make **JavaScript** a server-side programming language running on a server. In this course, we use **Node.js** to run JavaScript using command-line outside a browser. It can be downloaded from **Node.js** official website: https://nodejs.org and then installed.
+    JavaScript is a **client-side** programming language running on the **browser** of the client. **Node.js** is a tool used to make JavaScript a **server-side** programming language running on a **server**. In this course, we use **Node.js** to run JavaScript using command-line outside a browser. It can be downloaded from **Node.js** official website: https://nodejs.org and then installed.
 
     * **NPM**(Node package manager)  
-    which, as the name implies, is a program that **Node.js** uses to manage and keep track of packages or libraries. It is also used to install needed libraries. It can be installed by hitting: ` npm install -g npm ` on the terminal.
+    which, as the name implies, is a program that **Node.js** uses to add, manage and keep track of packages or libraries installed and used in the project. It can be installed by hitting: ` npm install -g npm ` on the terminal.
         * to check the version of installed npm: ` npm -v `.
         * if at any point you get an error saying **permission denied**, just run everything as a super user by preceding your command by ` sudo `(**super user do**).
 
@@ -55,10 +55,10 @@ function increaseAge( obj ) {
     coppiedObj.age++;
     return coppiedObj;
 }
-var olderS = getOlder();
+var olderS = increaseAge( s );
 ```
 Forget about copping the object and returning a new version of it now. It will be clear by the next concept.
-* The most useful thing here is the immediate **polymorphism** you get since the ` increaseAge ` **function** can operate on **any types** of objects that has ` age ` **property**.
+* The most useful thing here is the immediate **polymorphism** you get since the ` increaseAge ` **function** can operate on **any type** of object that has ` age ` **property**. Its usage is not restricted to a specific type of object.
 
 #### Avoiding state change and mutable data
 * **Mutable** means can be **changed**.
@@ -86,11 +86,11 @@ const longShoutedGreeting = longGreeting.toUpperCase();
 * You may think that this process of coping each object, modifying it and assigning a new version of it may be costly. Actually it is relatively inexpensive since we use simple constructs to hold data.       
 
 #### Treating functions as first-class citizens
-* **First-class** citizens are citizens that receive **fair treatment**(**having all rights**).
-* **Second-class** citizens are citizens that receive **inferior treatment**(**lacking some rights**).
+* **First-class** citizens are citizens that receive **fair treatment**(**having all their rights**).
+* **Second-class** citizens are citizens that receive **inferior treatment**(**lacking some of their rights**).
 * In programming:
-    * A **first-class citizen**(value, object, function, or type) is an entity that **supports all** the operations available by other entities.
-    * These operations include:
+    * A **first-class citizen**(value, object, function, or type) is an entity that **supports all** the **operations** available by other entities.
+    * These **operations** include:
         * being passed as argument.
         * returned from a function.
         * assigned to a variables.
@@ -113,11 +113,11 @@ function returnFun() {  // Returning a function from a function
 console.log( returnFun() );  // > function returnFun()
 ```
 ```
-var assignedFun = function() { return 1; };
+var assignedFun = function() { return 1; };  // Assigning function to a variables
 console.log( assignedFun );  // > function assignedFun()
 ```
 ```
-var assignedFun = function() { return 2; };
+var assignedFun = function() { return 2; };  // Modifying function
 /* Modifying(It is valid but not sure if this is really an update operation) */
 ```
 * This feature of allowing functions these operations provides very useful **flexibility** and **reusability**.
@@ -125,11 +125,12 @@ var assignedFun = function() { return 2; };
 
 
 ## Functional vs. object-oriented programming (OOP)
-* ` concat ` is a  **function** that operate on Arrays. It returns a **new**(modifies nothing) ` Array ` which is the original array(operated on) and whatever given as arguments(values or Array).
+* ` concat ` is a  **function** that operates on Arrays. It returns a new ` Array ` which is the result of concatenating the original array and whatever given as arguments(values or Array). It does not mutate(modify) the original array.
 ```
 var menoufFriends = new Array( "Ayman", "Mossab", "Ismail" );
 var allFriends = menoufFriends.concat( ["Gamal", "Adham"] );
-var completeFriends = allFriends.concat( "Abobakr" );  
+var completeFriends = allFriends.concat( "Abobakr" );
+console.log( completeFriends );  // ["Ayman", "Mossab", "Ismail", "Gamal", "Adham", "Abobakr"]
 ```
 * Let's compare between both paradigms:
     * The **main units of computer programs** in *OOP* is **classes and objects**. However, in *FP* they are **functions**. Let's see how we can implement a basic to-do list using both approaches:
@@ -157,7 +158,7 @@ var completeFriends = allFriends.concat( "Abobakr" );
         }
         ```
         In the next point you will understand why we keep it so simple in *FP*.
-    * On creating objects, with *OOP* we must decide what sort of object each one represents(**which class**). However, in *FP* we are not so concerned with (defining what everything is and what it can do)[class in OOP]. Instead we are concerned with **what the raw data** itself is and **what operations** and transformations we can perform on it. This give us the flexibility to define objects as key-value pairs(what's called hashes). Let's initialize a To-Do list using both approaches:
+    * On creating objects, with *OOP* we must decide what sort of object each one represents(**which class**). However, in *FP* we are not so concerned with (defining what everything is and what it can do). Instead we are concerned with **what the raw data** itself is and **what operations** and transformations we can perform on it. This gives us the flexibility to define objects as key-value pairs(what's called hashes). Let's initialize a To-Do list using both approaches:
         * In *OOP*
         ```
         var myToDoList = new ToDoList( [
@@ -188,7 +189,7 @@ var completeFriends = allFriends.concat( "Abobakr" );
             { task: "Study JS", time: "1 - 3" }
             ] );
         ```
-        Notice that in *FP* the names of variables refer to their content which makes the code more readable and makes it easy to debug the it.
+        Notice that in *FP* the names of variables refer to their content which makes the code more readable and makes it easy to debug.
 
 
 ## Chapter quiz
@@ -198,5 +199,5 @@ npm.
 npm install lodash --save.
 3. One of the key benefits of functional programming is that debugging is much easier?  
 TRUE.
-4. One key benefit of Functional programming is that it does not --- the original data?
+4. One key benefit of Functional programming is that it does not --- the original data?  
 mutate.

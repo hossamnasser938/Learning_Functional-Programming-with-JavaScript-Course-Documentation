@@ -17,11 +17,12 @@ var _ = require( "lodash" );
 ```
 I went to their official (website)[https://underscorejs.org/] trying to figure out what it is. It seems that it serves two purposes:
     * It **simplifies** the code a little bit. However it is not clear that it does in our example but in advanced use cases it does.
-    * It helps applying **functional programming**. How? have no idea yet.
+    * It helps applying **functional programming**. How?  
+    using the ` underscore ` syntax **keeps data and functions separate** by calling a function that takes an array and returns a new version of that array. However, in the normal way we call a function **on** an object which follows an object-oriented paradigm not the functional paradigm.   
 
 
 ## Filtering
-* Now let's see a new function which is ` filter `. ` filter ` is also applied on **arrays** and is used, as the name implies, to **filter** arrays based on a given **criteria** or simply extracting some elements that evaluates a given condition.
+* Now let's see a new function which is ` filter `. ` filter ` is also applied on **arrays** and is used, as the name implies, to **filter** arrays based on a given **criteria** or simply extracting some elements that evaluate a given condition.
 * ` filter ` function is given as argument the **array** to be filtered and the **function** to be applied on the elements of the array to filter it(that is the case when using the underscore library. However if we used the normal syntax we would pass only the function). This function should return a condition that when met the element is added to the resulting array.
 * Let's see some examples:
     * Suppose that we wanna extract the even number from an array of numbers.
@@ -44,7 +45,7 @@ I went to their official (website)[https://underscorejs.org/] trying to figure o
         var evenNumbers = _.filter( numbers, (number) => number % 2 === 0 );
         console.log( evenNumbers );  // The same output
         ```
-        Recall that if used this condition ` !(number % 2) ` it works.
+        Recall that if we used this condition ` !(number % 2) ` it works.
     * Suppose that we wanna extract all the employees that have salary larger than 10000.
     ```
     var employees = [ { name: "Hossam", salary: 7000 },
@@ -82,8 +83,8 @@ I went to their official (website)[https://underscorejs.org/] trying to figure o
     * ` every ` is used to check if **all** of the array elements evaluate a given condition.
     * ` some ` is used to check if **at least one** of the array elements evaluates a given condition.
 * Both of them works the same way as ` filter `. They are given as arguments a function that returns a condition and both of them return a single ` boolean ` value indicating that:
-    * ` every ` **all** elements evaluate the condition or non of them does.
-    * ` some ` **there is** some(at least one) elements that evaluate this condition or no one evaluates this condition.
+    * ` every ` **all** elements evaluate the condition(` true ` case) or some of them do not(` false ` case).
+    * ` some ` **there is** some(at least one) elements that evaluate this condition(` true ` case) or no one evaluates this condition(` false ` case).
 * Let's see some examples:  
 We have this array of numbers:
 ```
@@ -133,12 +134,13 @@ var numbers = [2, 4, 8, 16, 32];
 ## Reducing
 * Now we introduce a little different function from what we have seen so far. ` reduce ` function is used, as the name implies, to **reduce** a number of items to only one item such as taking an array of numbers and returning the summation or the product of them.
 * the ` reduce ` function accepts as arguments:
-    * the array of numbers to reduce.
-    * the function to be applied on the numbers to be reduced.
-    * the initial value of the accumulator which holds the reduced value.
+    * the **array** of numbers to reduce.
+    * the **function** to be applied on the numbers to be reduced.
+    * [optional] the initial value of the **accumulator** which holds the reduced value.
 * The function which is passed as argument to the ` reduce ` function accepts two arguments not one as we expect:
     * the accumulator which hold the reduced item by each iteration over the array.
     * the element itself of the array.
+* The default initial value of the **accumulator** is the first item of the array. This default value is used when no argument is given.
 * Let's see some examples:
     * Reducing an array of numbers to their summation.
     ```

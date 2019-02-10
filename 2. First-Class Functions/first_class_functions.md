@@ -13,7 +13,7 @@
     }
     ```
     * This **difference** is that:
-        * **normal functions** can be called before they are declared since functions in JavaScript is **hoisted**(As we said in the course **Up and Running with ES6**).
+        * **normal functions** can be called before they are declared since functions in JavaScript are **hoisted**(As we said in the course **Up and Running with ES6**).
         ```
         sayHello();  // Hello
         function sayHello() {
@@ -29,7 +29,7 @@
         }
         sayHello();  // Hello
         ```
-* Some **use case** where **functions assigned to a variable** help
+* Some **use cases** where **functions assigned to a variable** help
     * Renaming built-in functions to something shorter.
     ```
     const print = console.log;
@@ -37,11 +37,12 @@
     ```
     Here we renamed the function ` console.log ` to ` print ` by assigning ` console.log ` function to ` print ` variable. Remember that if you forgot and added the parenthesis to ` console.log ` like this.
     ```
-    const print = console.log;
+    const print = console.log();
     print( "Hello" );  // Error: print is not a function
     ```
     Since ` console.log() ` actually calls ` console.log ` and assigning whatever is returned from it(which in this case is ` undefined `) in ` print ` variable, now ` print ` is ` undefined ` rather than a function.
-    * Changing the behavior of a function based on environment state. The ability to assign a function to a variable gives you the flexibility to assign a single variable different functions dynamically based on the environment state which is something you can not achieve using normal functions.
+    * Changing the behavior of a function based on environment state.  
+    The ability to assign a function to a variable gives you the flexibility to assign a single variable different functions dynamically based on the environment state which is something you can not achieve using normal functions.
 
 
 ## Passing functions as arguments
@@ -98,7 +99,7 @@
     console.log( myCounter.count );  // 55
     console.log( myCounter.currentValue() );  // 1
     ```   
-    What happens here is that on assigning a value to a property called ` count ` JavaScript will add a new property with that name to the ` myCounter ` object while still our counter has its value before that assignment.
+    What happens here is that on assigning a value to a property called ` count ` JavaScript will not find that property so it will add a new property with that name to the ` myCounter ` object while still our counter has its value before that assignment.
         * Also we can pass an initial value to the counter.
         ```
         function createCounter( initial ) {

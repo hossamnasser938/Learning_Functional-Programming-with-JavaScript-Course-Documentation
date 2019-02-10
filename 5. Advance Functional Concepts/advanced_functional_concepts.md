@@ -17,7 +17,7 @@ console.log( add( 1, 7 ) );
 console.log( add( 1, 10 ) );
 console.log( add( 1, 15 ) );
 ```
-I know it is a trivial silly example but it illustrates the idea. You noticed that we use the function ` add ` with a given argument(which is 1 in this case) most frequently. Why not we create a function(**partial application**) that as arguments: the function that we wanna decrease its arguments and the arguments that we use most frequently.
+I know it is a trivial silly example but it illustrates the idea. You noticed that we use the function ` add ` with a given argument(which is 1 in this case) most frequently. Why not we create a function(**partial application**) that accept as arguments: the function that we wanna decrease its arguments and the arguments that we use most frequently.
 ```
 function partialApply( func, arg1 ) {
     return function( arg2 ) {
